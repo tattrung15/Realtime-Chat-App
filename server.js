@@ -16,6 +16,8 @@ mongoose.connect(DB, {
 
 io.on('connection', (socket) => {
 
+    console.log('Someone connected');
+
     socket.on('client-send-roomId', (data) => {
         socket.Room = data;
         socket.join(data);
