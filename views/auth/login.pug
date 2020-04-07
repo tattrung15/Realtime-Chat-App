@@ -1,0 +1,28 @@
+doctype html
+head
+	meta(charset='UTF-8')
+	meta(name='viewport', content='width=device-width, initial-scale=1.0')
+	link(rel='shortcut icon', type='image/png', href='/login/icon/login.png')
+	title Login
+	link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+	link(rel='stylesheet', href='/login/css/style.css')
+.wrapper
+	#formContent
+		div
+			h1 Login
+		if msgSuccess
+			p.alert.alert-success.m-3 #{msgSuccess}
+		if errors
+			each error in errors
+				p.alert.alert-danger.m-3 #{error}
+		form(action='/auth/login', method='POST', onsubmit="return validate();")
+			input#username.second(type='text', name='username', placeholder='Username' value=newUser ? newUser.username : (value ? value.username : ""))
+			input#password.second(type='password', name='password', placeholder='Password' value=newUserPass ? newUserPass : (value ? value.password : ""))
+			input.third(type='submit', value='Log In')
+			p#error(style="color: red; font-size: 14px")
+		#formFooter
+			a.underlineHover(href='/register') Sign Up
+script(src='/utils/jquery-3.4.1.slim.min.js')
+script(src='/utils/popper.min.js')
+script(src='/bootstrap/js/bootstrap.min.js')
+script(src="/login/js/form.js")
