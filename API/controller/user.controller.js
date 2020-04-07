@@ -12,7 +12,7 @@ module.exports.allUser = async (req, res) => {
             data: data
         });
     } catch (error) {
-        res.status(500).json({
+        res.status(400).json({
             message: 'fail',
             error: error
         });
