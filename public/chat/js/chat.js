@@ -26,7 +26,11 @@ socket.on('socket-stop-typing', () => {
 
 $(document).ready(function () {
 
-    $("#btnSend").attr('disabled', true);
+    if($('#message').val() !== ''){
+        $("#btnSend").attr('disabled', false);
+    } else {
+        $("#btnSend").attr('disabled', true);
+    }
     
     if($('#roomId').val() !== ''){
         $("#btnJoinRoom").attr('disabled', false);
