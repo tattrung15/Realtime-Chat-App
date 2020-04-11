@@ -52,7 +52,6 @@ io.on('connection', (socket) => {
     });
 
     socket.on('client-send-file', (data) => {
-        console.log(data);
         socket.broadcast.to(socket.Room).emit('server-send-file', data);
     });
 });
