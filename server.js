@@ -50,10 +50,6 @@ io.on('connection', (socket) => {
     socket.on('stop-typing', () => {
         socket.broadcast.to(socket.Room).emit('socket-stop-typing');
     });
-
-    socket.on('client-send-file', (data) => {
-        socket.broadcast.to(socket.Room).emit('server-send-file', data);
-    });
 });
 
 server.listen(PORT, () => {

@@ -124,20 +124,5 @@ function showFile(input){
         img.style.width = '100%';
         img.style.marginTop = '20px';
         resultShow.appendChild(img);
-        socket.emit('client-send-file', event.target.result);
     }
 }
-
-socket.on('server-send-file', (data) => {
-    if(document.getElementById('img-item')){
-        resultShow.removeChild(document.getElementById('img-item'));
-    }
-
-    let img = document.createElement('img');
-    img.id = 'img-item';
-    img.src = data;
-    img.style.width = '100%';
-    img.style.marginTop = '20px';
-    resultShow.appendChild(img);
-    audio.play();
-});
