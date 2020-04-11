@@ -1,4 +1,4 @@
-//require('dotenv').config();
+require('dotenv').config();
 const mongoose = require('mongoose');
 const app = require('./app');
 const server = require('http').Server(app);
@@ -49,6 +49,10 @@ io.on('connection', (socket) => {
 
     socket.on('stop-typing', () => {
         socket.broadcast.to(socket.Room).emit('socket-stop-typing');
+    });
+
+    socket.on('client-send-file', (data) => {
+        socket.broadcast.to(socket.Room).emit('server-send-file', data);
     });
 });
 
