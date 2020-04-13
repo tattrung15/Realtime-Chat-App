@@ -1,4 +1,4 @@
-//require('dotenv').config();
+require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -13,7 +13,7 @@ const authMiddleWare = require('./middleware/auth.middleware');
 const apiRouter = require('./API/router/user.route');
 
 app.set('view engine', 'pug');
-app.set('views', './views')
+app.set('views', './views');
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
