@@ -100,7 +100,7 @@ function randomString(length){
 function getBase64Image(imgData) {
     return imgData.replace(/^data:image\/(png|jpeg|jpg);base64,/, "");
 }
-//
+
 server.listen(PORT, () => {
     console.log(`Server is running at ${PORT}`);
 })
