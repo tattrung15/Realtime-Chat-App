@@ -1,5 +1,6 @@
 var socket = io();
 var audio = new Audio('/chat/sound/rington.mp3');
+const resultShow = document.getElementById('result');
 
 socket.on('socket-send-room', (data) => {
     $('#room-id').html(data.data);
@@ -22,6 +23,20 @@ socket.on('socket-typing', () => {
 
 socket.on('socket-stop-typing', () => {
     $('#typing').addClass('d-none');
+});
+
+socket.on('server-send-image', (data) => {
+    if(document.getElementById('img-item')){
+        resultShow.removeChild(document.getElementById('img-item'));
+    }
+
+    let img = document.createElement('img');
+    img.id = 'img-item';
+    img.src = data.path;
+    img.style.width = '100%';
+    img.style.marginTop = '20px';
+    resultShow.appendChild(img);
+    audio.play();
 });
 
 $(document).ready(function () {
@@ -107,8 +122,6 @@ $(document).ready(function () {
     };
 });
 
-const resultShow = document.getElementById('result');
-
 function showFile(input){
     
     if(document.getElementById('img-item')){
@@ -124,5 +137,9 @@ function showFile(input){
         img.style.width = '100%';
         img.style.marginTop = '20px';
         resultShow.appendChild(img);
+
+        socket.emit('client-send-image', {
+            base64: event.target.result
+        });
     }
 }
