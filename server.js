@@ -1,4 +1,4 @@
-//require('dotenv').config();
+require('dotenv').config();
 const mongoose = require('mongoose');
 const fs = require('fs');
 const fsx = require('fs-extra');
@@ -56,7 +56,7 @@ io.on('connection', (socket) => {
     socket.on('stop-typing', () => {
         socket.broadcast.to(socket.Room).emit('socket-stop-typing');
     });
-//
+
     socket.on('client-send-image', (data) => {
 
         if (!fs.existsSync(__dirname + '/public/upload/')){
