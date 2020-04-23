@@ -1,7 +1,8 @@
-require('dotenv').config();
+//require('dotenv').config();
 const mongoose = require('mongoose');
 const fs = require('fs');
 const fsx = require('fs-extra');
+const xssFilters = require('xss-filters');
 const app = require('./app');
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
@@ -22,7 +23,7 @@ io.on('connection', (socket) => {
         socket.Room = data;
         socket.join(data);
         io.sockets.in(socket.Room).emit('socket-send-room', {
-            data: data,
+            data: xssFilters.inHTMLData(data),
             numOfOnline: socket.adapter.rooms[socket.Room].length
         });
     });
@@ -46,7 +47,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('client-send-message', (data) => {
-        socket.broadcast.to(socket.Room).emit('server-send-message', data);
+        socket.broadcast.to(socket.Room).emit('server-send-message', xssFilters.inHTMLData(data));
     });
 
     socket.on('typing', () => {
