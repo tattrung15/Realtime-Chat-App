@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-
 const User = require('../model/userModel');
 
 module.exports.authLogin = async (req, res, next) => {

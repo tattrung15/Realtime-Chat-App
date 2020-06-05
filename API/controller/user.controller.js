@@ -1,4 +1,4 @@
-//require('dotenv').config();
+require('dotenv').config();
 const User = require('../../model/userModel');
 
 module.exports.allUser = async (req, res) => {
