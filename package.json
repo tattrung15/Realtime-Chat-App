@@ -18,7 +18,7 @@
     "helmet": "^3.22.0",
     "mongoose": "^5.13.15",
     "pug": "^3.0.1",
-    "socket.io": "^4.5.3",
+    "socket.io": "^4.6.1",
     "xss-filters": "^1.2.7"
   },
   "devDependencies": {
