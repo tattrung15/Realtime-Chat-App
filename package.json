@@ -16,7 +16,7 @@
     "express": "^4.19.2",
     "fs-extra": "^9.0.0",
     "helmet": "^3.22.0",
-    "mongoose": "^5.13.20",
+    "mongoose": "^8.8.3",
     "pug": "^3.0.3",
     "socket.io": "^4.7.5",
     "xss-filters": "^1.2.7"
