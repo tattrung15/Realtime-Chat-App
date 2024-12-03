@@ -12,13 +12,13 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
-    "cookie-parser": "^1.4.5",
-    "express": "^4.19.2",
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.1",
     "fs-extra": "^9.0.0",
     "helmet": "^3.22.0",
     "mongoose": "^8.8.3",
     "pug": "^3.0.3",
-    "socket.io": "^4.7.5",
+    "socket.io": "^4.8.1",
     "xss-filters": "^1.2.7"
   },
   "devDependencies": {
